@@ -10,15 +10,13 @@ matrix:
 
 init:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-install:
-  - cmd: choco install sbt -ia "INSTALLDIR=""C:\sbt"""
-  - cmd: SET PATH=C:\sbt\bin;%JAVA_HOME%\bin;%PATH%
-  - cmd: SET SBT_OPTS=-XX:MaxPermSize=2g -Xmx4g
 build_script:
   - ps: $url = get-content artifacts | select-string "zip" | Foreach {($_ -split  '=', 2)[1]};  wget -O dotty.zip $url
-  - ps: Expand-Archive dotty.zip -DestinationPath dotty
+  - ps: Expand-Archive dotty.zip -DestinationPath .
+  - cmd: SET PATH=%bash%;%PATH%
 test_script:
-  - ps: cd dotty-*; $env:bash bin\dotc ..\examples\HelloWorld.scala
-  - ps: cd dotty-*; $env:bash bin\dotr HelloWorld
-  - ps: cd dotty-*; $env:bash bin\dotd ..\examples\HelloWorld.scala
+  - cmd: cd dotty-*
+  - cmd: bash bin\dotc ..\examples\HelloWorld.scala
+  - cmd: bash bin\dotr HelloWorld
+  - cmd: bash bin\dotd ..\examples\HelloWorld.scala
 
