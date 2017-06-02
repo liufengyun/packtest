@@ -7,7 +7,7 @@ matrix:
       language: scala
       jdk: oraclejdk8
 script:
-  - wget -O dotty.tar.gz https://github.com/lampepfl/dotty/releases/download/0.1.2-RC1/dotty-0.1.2-RC1.tar.gz
+  - source artifacts && wget -O dotty.tar.gz $tar
   - tar -xzvf dotty.tar.gz --strip-components=1
   - bin/dotc examples/HelloWorld.scala
   - bin/dotr HelloWorld
