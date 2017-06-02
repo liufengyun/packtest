@@ -15,8 +15,5 @@ build_script:
   - ps: Expand-Archive dotty.zip -DestinationPath .
   - cmd: SET PATH=%bash%;%PATH%
 test_script:
-  - cmd: cd dotty-*
-  - cmd: bash bin\dotc ..\..\examples\HelloWorld.scala
-  - cmd: bash bin\dotr HelloWorld
-  - cmd: bash bin\dotd ..\..\examples\HelloWorld.scala
+  - cmd: bash windows
 

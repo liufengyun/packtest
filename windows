@@ -1,0 +1,4 @@
+cd dotty-*
+bash bin\dotc ..\examples\HelloWorld.scala
+bash bin\dotr HelloWorld
+bash bin\dotd ..\examples\HelloWorld.scala
