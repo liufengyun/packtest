@@ -1,4 +1,5 @@
+set -e
 cd dotty-*
-bash bin/dotc ../examples/HelloWorld.scala
-bash bin/dotr HelloWorld
-bash bin/dotd ../examples/HelloWorld.scala
+bin/dotc ../examples/HelloWorld.scala
+bin/dotr HelloWorld
+bin/dotd ../examples/HelloWorld.scala
