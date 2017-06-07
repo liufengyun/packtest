@@ -1,5 +1,5 @@
 set -e
 cd dotty-*
 bin/dotc ../examples/HelloWorld.scala
-bin/dotr HelloWorld
+bin/dotr dotty.HelloWorld
 bin/dotd ../examples/HelloWorld.scala
