@@ -1,5 +1,6 @@
 set -e
 cd dotty-*
+bin/dotc @../examples/options ../examples/HelloWorld.scala
 bin/dotc ../examples/HelloWorld.scala
 bin/dotr dotty.HelloWorld
 bin/dotd ../examples/HelloWorld.scala

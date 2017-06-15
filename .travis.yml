@@ -9,6 +9,7 @@ matrix:
 script:
   - source artifacts && wget -O dotty.tar.gz $tar
   - tar -xzvf dotty.tar.gz --strip-components=1
+  - bin/dotc @options examples/HelloWorld.scala
   - bin/dotc examples/HelloWorld.scala
   - bin/dotr dotty.HelloWorld
   - bin/dotd examples/HelloWorld.scala
